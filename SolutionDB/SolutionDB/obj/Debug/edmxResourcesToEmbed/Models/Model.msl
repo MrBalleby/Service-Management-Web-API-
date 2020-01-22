@@ -1,0 +1,907 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SolutionDBModelStoreContainer" CdmEntityContainer="SolutionDBEntities3">
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="SolutionDBModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applications">
+      <EntityTypeMapping TypeName="SolutionDBModel.Application">
+        <MappingFragment StoreEntitySet="Application">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="SolutionDBModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cellphones">
+      <EntityTypeMapping TypeName="SolutionDBModel.Cellphone">
+        <MappingFragment StoreEntitySet="Cellphone">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cellphone_Battery">
+      <EntityTypeMapping TypeName="SolutionDBModel.Cellphone_Battery">
+        <MappingFragment StoreEntitySet="Cellphone_Battery">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cellphone_Hardware">
+      <EntityTypeMapping TypeName="SolutionDBModel.Cellphone_Hardware">
+        <MappingFragment StoreEntitySet="Cellphone_Hardware">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cellphone_Software">
+      <EntityTypeMapping TypeName="SolutionDBModel.Cellphone_Software">
+        <MappingFragment StoreEntitySet="Cellphone_Software">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="SolutionDBModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Addr_Id" ColumnName="Addr_Id" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="SolutionDBModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Addr_Id" ColumnName="Addr_Id" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_Support">
+      <EntityTypeMapping TypeName="SolutionDBModel.Employee_Support">
+        <MappingFragment StoreEntitySet="Employee_Support">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name_Id" ColumnName="Name_Id" />
+          <ScalarProperty Name="SupportLevel" ColumnName="SupportLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Incidents">
+      <EntityTypeMapping TypeName="SolutionDBModel.Incident">
+        <MappingFragment StoreEntitySet="Incident">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Caller_Id" ColumnName="Caller_Id" />
+          <ScalarProperty Name="Descrition" ColumnName="Descrition" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Opened" ColumnName="Opened" />
+          <ScalarProperty Name="Urgency_Id" ColumnName="Urgency_Id" />
+          <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="No_Connection">
+      <EntityTypeMapping TypeName="SolutionDBModel.No_Connection">
+        <MappingFragment StoreEntitySet="No_Connection">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OS">
+      <EntityTypeMapping TypeName="SolutionDBModel.O">
+        <MappingFragment StoreEntitySet="OS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PCs">
+      <EntityTypeMapping TypeName="SolutionDBModel.PC">
+        <MappingFragment StoreEntitySet="PC">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prints">
+      <EntityTypeMapping TypeName="SolutionDBModel.Print">
+        <MappingFragment StoreEntitySet="Print">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Print_Hardware">
+      <EntityTypeMapping TypeName="SolutionDBModel.Print_Hardware">
+        <MappingFragment StoreEntitySet="Print_Hardware">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Print_Software">
+      <EntityTypeMapping TypeName="SolutionDBModel.Print_Software">
+        <MappingFragment StoreEntitySet="Print_Software">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistryChanges">
+      <EntityTypeMapping TypeName="SolutionDBModel.RegistryChange">
+        <MappingFragment StoreEntitySet="RegistryChange">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SecondLevels">
+      <EntityTypeMapping TypeName="SolutionDBModel.SecondLevel">
+        <MappingFragment StoreEntitySet="SecondLevel">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ticket_Id" ColumnName="Ticket_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Solutions">
+      <EntityTypeMapping TypeName="SolutionDBModel.Solution">
+        <MappingFragment StoreEntitySet="Solution">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Solution1" ColumnName="Solution" />
+          <ScalarProperty Name="SupportLevel" ColumnName="SupportLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="SolutionDBModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urgencies">
+      <EntityTypeMapping TypeName="SolutionDBModel.Urgency">
+        <MappingFragment StoreEntitySet="Urgency">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UrgencyState" ColumnName="UrgencyState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cellphone_Batteries">
+      <EntityTypeMapping TypeName="SolutionDBModel.Cellphone_Battery1">
+        <MappingFragment StoreEntitySet="Cellphone Battery">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+          <ScalarProperty Name="Expr5" ColumnName="Expr5" />
+          <ScalarProperty Name="Expr6" ColumnName="Expr6" />
+          <ScalarProperty Name="Solution" ColumnName="Solution" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_Info">
+      <EntityTypeMapping TypeName="SolutionDBModel.Customer_Info">
+        <MappingFragment StoreEntitySet="Customer_Info">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_AddressDelete" FunctionName="SolutionDBModel.Store.usp_AddressDelete" />
+    <FunctionImportMapping FunctionImportName="usp_AddressInsert" FunctionName="SolutionDBModel.Store.usp_AddressInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_AddressInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_AddressSelect" FunctionName="SolutionDBModel.Store.usp_AddressSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_AddressSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_AddressUpdate" FunctionName="SolutionDBModel.Store.usp_AddressUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_AddressUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ApplicationDelete" FunctionName="SolutionDBModel.Store.usp_ApplicationDelete" />
+    <FunctionImportMapping FunctionImportName="usp_ApplicationInsert" FunctionName="SolutionDBModel.Store.usp_ApplicationInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_ApplicationInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ApplicationSelect" FunctionName="SolutionDBModel.Store.usp_ApplicationSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_ApplicationSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ApplicationUpdate" FunctionName="SolutionDBModel.Store.usp_ApplicationUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_ApplicationUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_CategoryDelete" FunctionName="SolutionDBModel.Store.usp_CategoryDelete" />
+    <FunctionImportMapping FunctionImportName="usp_CategoryInsert" FunctionName="SolutionDBModel.Store.usp_CategoryInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_CategoryInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_CategorySelect" FunctionName="SolutionDBModel.Store.usp_CategorySelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_CategorySelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_CategoryUpdate" FunctionName="SolutionDBModel.Store.usp_CategoryUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_CategoryUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Cellphone_BatteryDelete" FunctionName="SolutionDBModel.Store.usp_Cellphone_BatteryDelete" />
+    <FunctionImportMapping FunctionImportName="usp_Cellphone_BatteryInsert" FunctionName="SolutionDBModel.Store.usp_Cellphone_BatteryInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Cellphone_BatteryInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Cellphone_BatterySelect" FunctionName="SolutionDBModel.Store.usp_Cellphone_BatterySelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Cellphone_BatterySelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Cellphone_BatteryUpdate" FunctionName="SolutionDBModel.Store.usp_Cellphone_BatteryUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Cellphone_BatteryUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Cellphone_HardwareDelete" FunctionName="SolutionDBModel.Store.usp_Cellphone_HardwareDelete" />
+    <FunctionImportMapping FunctionImportName="usp_Cellphone_HardwareInsert" FunctionName="SolutionDBModel.Store.usp_Cellphone_HardwareInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Cellphone_HardwareInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Cellphone_HardwareSelect" FunctionName="SolutionDBModel.Store.usp_Cellphone_HardwareSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Cellphone_HardwareSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Cellphone_HardwareUpdate" FunctionName="SolutionDBModel.Store.usp_Cellphone_HardwareUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Cellphone_HardwareUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Cellphone_SoftwareDelete" FunctionName="SolutionDBModel.Store.usp_Cellphone_SoftwareDelete" />
+    <FunctionImportMapping FunctionImportName="usp_Cellphone_SoftwareInsert" FunctionName="SolutionDBModel.Store.usp_Cellphone_SoftwareInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Cellphone_SoftwareInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Cellphone_SoftwareSelect" FunctionName="SolutionDBModel.Store.usp_Cellphone_SoftwareSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Cellphone_SoftwareSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Cellphone_SoftwareUpdate" FunctionName="SolutionDBModel.Store.usp_Cellphone_SoftwareUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Cellphone_SoftwareUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_CellphoneDelete" FunctionName="SolutionDBModel.Store.usp_CellphoneDelete" />
+    <FunctionImportMapping FunctionImportName="usp_CellphoneInsert" FunctionName="SolutionDBModel.Store.usp_CellphoneInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_CellphoneInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_CellphoneSelect" FunctionName="SolutionDBModel.Store.usp_CellphoneSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_CellphoneSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_CellphoneUpdate" FunctionName="SolutionDBModel.Store.usp_CellphoneUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_CellphoneUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_CustomerDelete" FunctionName="SolutionDBModel.Store.usp_CustomerDelete" />
+    <FunctionImportMapping FunctionImportName="usp_CustomerInsert" FunctionName="SolutionDBModel.Store.usp_CustomerInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_CustomerInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Addr_Id" ColumnName="Addr_Id" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_CustomerSelect" FunctionName="SolutionDBModel.Store.usp_CustomerSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_CustomerSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Addr_Id" ColumnName="Addr_Id" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_CustomerUpdate" FunctionName="SolutionDBModel.Store.usp_CustomerUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_CustomerUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Addr_Id" ColumnName="Addr_Id" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Employee_SupportDelete" FunctionName="SolutionDBModel.Store.usp_Employee_SupportDelete" />
+    <FunctionImportMapping FunctionImportName="usp_Employee_SupportInsert" FunctionName="SolutionDBModel.Store.usp_Employee_SupportInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Employee_SupportInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name_Id" ColumnName="Name_Id" />
+          <ScalarProperty Name="SupportLevel" ColumnName="SupportLevel" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Employee_SupportSelect" FunctionName="SolutionDBModel.Store.usp_Employee_SupportSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Employee_SupportSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name_Id" ColumnName="Name_Id" />
+          <ScalarProperty Name="SupportLevel" ColumnName="SupportLevel" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Employee_SupportUpdate" FunctionName="SolutionDBModel.Store.usp_Employee_SupportUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Employee_SupportUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name_Id" ColumnName="Name_Id" />
+          <ScalarProperty Name="SupportLevel" ColumnName="SupportLevel" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_EmployeeDelete" FunctionName="SolutionDBModel.Store.usp_EmployeeDelete" />
+    <FunctionImportMapping FunctionImportName="usp_EmployeeInsert" FunctionName="SolutionDBModel.Store.usp_EmployeeInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_EmployeeInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Addr_Id" ColumnName="Addr_Id" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_EmployeeSelect" FunctionName="SolutionDBModel.Store.usp_EmployeeSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_EmployeeSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Addr_Id" ColumnName="Addr_Id" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_EmployeeUpdate" FunctionName="SolutionDBModel.Store.usp_EmployeeUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_EmployeeUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Addr_Id" ColumnName="Addr_Id" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_IncidentDelete" FunctionName="SolutionDBModel.Store.usp_IncidentDelete" />
+    <FunctionImportMapping FunctionImportName="usp_IncidentInsert" FunctionName="SolutionDBModel.Store.usp_IncidentInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_IncidentInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Caller_Id" ColumnName="Caller_Id" />
+          <ScalarProperty Name="Descrition" ColumnName="Descrition" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Opened" ColumnName="Opened" />
+          <ScalarProperty Name="Urgency_Id" ColumnName="Urgency_Id" />
+          <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_IncidentSelect" FunctionName="SolutionDBModel.Store.usp_IncidentSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_IncidentSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Caller_Id" ColumnName="Caller_Id" />
+          <ScalarProperty Name="Descrition" ColumnName="Descrition" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Opened" ColumnName="Opened" />
+          <ScalarProperty Name="Urgency_Id" ColumnName="Urgency_Id" />
+          <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_IncidentUpdate" FunctionName="SolutionDBModel.Store.usp_IncidentUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_IncidentUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Caller_Id" ColumnName="Caller_Id" />
+          <ScalarProperty Name="Descrition" ColumnName="Descrition" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Opened" ColumnName="Opened" />
+          <ScalarProperty Name="Urgency_Id" ColumnName="Urgency_Id" />
+          <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_No_ConnectionDelete" FunctionName="SolutionDBModel.Store.usp_No_ConnectionDelete" />
+    <FunctionImportMapping FunctionImportName="usp_No_ConnectionInsert" FunctionName="SolutionDBModel.Store.usp_No_ConnectionInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_No_ConnectionInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_No_ConnectionSelect" FunctionName="SolutionDBModel.Store.usp_No_ConnectionSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_No_ConnectionSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_No_ConnectionUpdate" FunctionName="SolutionDBModel.Store.usp_No_ConnectionUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_No_ConnectionUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_OSDelete" FunctionName="SolutionDBModel.Store.usp_OSDelete" />
+    <FunctionImportMapping FunctionImportName="usp_OSInsert" FunctionName="SolutionDBModel.Store.usp_OSInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_OSInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_OSSelect" FunctionName="SolutionDBModel.Store.usp_OSSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_OSSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_OSUpdate" FunctionName="SolutionDBModel.Store.usp_OSUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_OSUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_PCDelete" FunctionName="SolutionDBModel.Store.usp_PCDelete" />
+    <FunctionImportMapping FunctionImportName="usp_PCInsert" FunctionName="SolutionDBModel.Store.usp_PCInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_PCInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_PCSelect" FunctionName="SolutionDBModel.Store.usp_PCSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_PCSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_PCUpdate" FunctionName="SolutionDBModel.Store.usp_PCUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_PCUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Print_HardwareDelete" FunctionName="SolutionDBModel.Store.usp_Print_HardwareDelete" />
+    <FunctionImportMapping FunctionImportName="usp_Print_HardwareInsert" FunctionName="SolutionDBModel.Store.usp_Print_HardwareInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Print_HardwareInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Print_HardwareSelect" FunctionName="SolutionDBModel.Store.usp_Print_HardwareSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Print_HardwareSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Print_HardwareUpdate" FunctionName="SolutionDBModel.Store.usp_Print_HardwareUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Print_HardwareUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Print_SoftwareDelete" FunctionName="SolutionDBModel.Store.usp_Print_SoftwareDelete" />
+    <FunctionImportMapping FunctionImportName="usp_Print_SoftwareInsert" FunctionName="SolutionDBModel.Store.usp_Print_SoftwareInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Print_SoftwareInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Print_SoftwareSelect" FunctionName="SolutionDBModel.Store.usp_Print_SoftwareSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Print_SoftwareSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Print_SoftwareUpdate" FunctionName="SolutionDBModel.Store.usp_Print_SoftwareUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_Print_SoftwareUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_PrintDelete" FunctionName="SolutionDBModel.Store.usp_PrintDelete" />
+    <FunctionImportMapping FunctionImportName="usp_PrintInsert" FunctionName="SolutionDBModel.Store.usp_PrintInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_PrintInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_PrintSelect" FunctionName="SolutionDBModel.Store.usp_PrintSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_PrintSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_PrintUpdate" FunctionName="SolutionDBModel.Store.usp_PrintUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_PrintUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_RegistryChangeDelete" FunctionName="SolutionDBModel.Store.usp_RegistryChangeDelete" />
+    <FunctionImportMapping FunctionImportName="usp_RegistryChangeInsert" FunctionName="SolutionDBModel.Store.usp_RegistryChangeInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_RegistryChangeInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_RegistryChangeSelect" FunctionName="SolutionDBModel.Store.usp_RegistryChangeSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_RegistryChangeSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_RegistryChangeUpdate" FunctionName="SolutionDBModel.Store.usp_RegistryChangeUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_RegistryChangeUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Solution_Id" ColumnName="Solution_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_SecondLevelDelete" FunctionName="SolutionDBModel.Store.usp_SecondLevelDelete" />
+    <FunctionImportMapping FunctionImportName="usp_SecondLevelInsert" FunctionName="SolutionDBModel.Store.usp_SecondLevelInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_SecondLevelInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ticket_Id" ColumnName="Ticket_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_SecondLevelSelect" FunctionName="SolutionDBModel.Store.usp_SecondLevelSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_SecondLevelSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ticket_Id" ColumnName="Ticket_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_SecondLevelUpdate" FunctionName="SolutionDBModel.Store.usp_SecondLevelUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_SecondLevelUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ticket_Id" ColumnName="Ticket_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_SolutionDelete" FunctionName="SolutionDBModel.Store.usp_SolutionDelete" />
+    <FunctionImportMapping FunctionImportName="usp_SolutionInsert" FunctionName="SolutionDBModel.Store.usp_SolutionInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_SolutionInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Solution" ColumnName="Solution" />
+          <ScalarProperty Name="SupportLevel" ColumnName="SupportLevel" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_SolutionSelect" FunctionName="SolutionDBModel.Store.usp_SolutionSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_SolutionSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Solution" ColumnName="Solution" />
+          <ScalarProperty Name="SupportLevel" ColumnName="SupportLevel" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_SolutionUpdate" FunctionName="SolutionDBModel.Store.usp_SolutionUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_SolutionUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Solution" ColumnName="Solution" />
+          <ScalarProperty Name="SupportLevel" ColumnName="SupportLevel" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_StatusDelete" FunctionName="SolutionDBModel.Store.usp_StatusDelete" />
+    <FunctionImportMapping FunctionImportName="usp_StatusInsert" FunctionName="SolutionDBModel.Store.usp_StatusInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_StatusInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_StatusSelect" FunctionName="SolutionDBModel.Store.usp_StatusSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_StatusSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_StatusUpdate" FunctionName="SolutionDBModel.Store.usp_StatusUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_StatusUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_TableDelete" FunctionName="SolutionDBModel.Store.usp_TableDelete" />
+    <FunctionImportMapping FunctionImportName="usp_TableInsert" FunctionName="SolutionDBModel.Store.usp_TableInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_TableInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_TableSelect" FunctionName="SolutionDBModel.Store.usp_TableSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_TableSelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_TableUpdate" FunctionName="SolutionDBModel.Store.usp_TableUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_TableUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_UrgencyDelete" FunctionName="SolutionDBModel.Store.usp_UrgencyDelete" />
+    <FunctionImportMapping FunctionImportName="usp_UrgencyInsert" FunctionName="SolutionDBModel.Store.usp_UrgencyInsert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_UrgencyInsert_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UrgencyState" ColumnName="UrgencyState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_UrgencySelect" FunctionName="SolutionDBModel.Store.usp_UrgencySelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_UrgencySelect_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UrgencyState" ColumnName="UrgencyState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_UrgencyUpdate" FunctionName="SolutionDBModel.Store.usp_UrgencyUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SolutionDBModel.usp_UrgencyUpdate_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UrgencyState" ColumnName="UrgencyState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

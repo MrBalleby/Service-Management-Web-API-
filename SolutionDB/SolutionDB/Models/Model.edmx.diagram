@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9bfb1703357445d1ad0d377a0f7cd5f6" Name="Diagram1" ZoomLevel="84">
+        <EntityTypeShape EntityType="SolutionDBModel.Address" Width="1.5" PointX="3.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Application" Width="1.5" PointX="5.25" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Category" Width="1.5" PointX="9.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Cellphone" Width="1.5" PointX="7.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Cellphone_Battery" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Cellphone_Hardware" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Cellphone_Software" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Customer" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Employee" Width="1.5" PointX="5.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Employee_Support" Width="1.5" PointX="8" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Incident" Width="1.5" PointX="8" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.No_Connection" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.O" Width="1.5" PointX="5.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.PC" Width="1.5" PointX="7.5" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Print" Width="1.5" PointX="5.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Print_Hardware" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Print_Software" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.RegistryChange" Width="1.5" PointX="3" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.SecondLevel" Width="1.5" PointX="10.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Solution" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Status" Width="1.5" PointX="5.75" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Urgency" Width="1.5" PointX="5.75" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Cellphone_Battery1" Width="1.5" PointX="2.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SolutionDBModel.Customer_Info" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="SolutionDBModel.FK_Customer_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Employee_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Application_RegistryChange" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Category_PC" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Category_Print" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Incident_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Solution_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Cellphone_Cellphone_Hardware" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Cellphone_Cellphone_Software" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Cellphone_Battery_Solution" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Cellphone_Hardware_Cellphone_Battery" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Cellphone_Software_No_Connection" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Incident_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Employee_Support_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Incident_Solution" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Incident_Status_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Incident_Urgency" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_SecondLevel_Incident" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Table_Solution" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_OS_RegistryChange" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_PC_OS" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Print_Print_Hardware" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Print_Print_Software" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Print_Hardware_Solution" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_Print_Software_Solution" ManuallyRouted="false" />
+        <AssociationConnector Association="SolutionDBModel.FK_RegistryChange_Solution" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,1447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SolutionDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Street" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="zip" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Address" FromRole="Address" ToRole="Customer" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_Address" FromRole="Address" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RegistryChange" Relationship="Self.FK_Application_RegistryChange" FromRole="Application" ToRole="RegistryChange" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PC" Relationship="Self.FK_Category_PC" FromRole="Category" ToRole="PC" />
+    <NavigationProperty Name="Print" Relationship="Self.FK_Category_Print" FromRole="Category" ToRole="Print" />
+    <NavigationProperty Name="Incidents" Relationship="Self.FK_Incident_Category" FromRole="Category" ToRole="Incident" />
+    <NavigationProperty Name="Solutions" Relationship="Self.FK_Solution_Category" FromRole="Category" ToRole="Solution" />
+  </EntityType>
+  <EntityType Name="Cellphone">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cellphone_Hardware" Relationship="Self.FK_Cellphone_Cellphone_Hardware" FromRole="Cellphone" ToRole="Cellphone_Hardware" />
+    <NavigationProperty Name="Cellphone_Software" Relationship="Self.FK_Cellphone_Cellphone_Software" FromRole="Cellphone" ToRole="Cellphone_Software" />
+  </EntityType>
+  <EntityType Name="Cellphone_Battery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Solution_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Solution" Relationship="Self.FK_Cellphone_Battery_Solution" FromRole="Cellphone_Battery" ToRole="Solution" />
+    <NavigationProperty Name="Cellphone_Hardware" Relationship="Self.FK_Cellphone_Hardware_Cellphone_Battery" FromRole="Cellphone_Battery" ToRole="Cellphone_Hardware" />
+  </EntityType>
+  <EntityType Name="Cellphone_Hardware">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cellphones" Relationship="Self.FK_Cellphone_Cellphone_Hardware" FromRole="Cellphone_Hardware" ToRole="Cellphone" />
+    <NavigationProperty Name="Cellphone_Battery" Relationship="Self.FK_Cellphone_Hardware_Cellphone_Battery" FromRole="Cellphone_Hardware" ToRole="Cellphone_Battery" />
+  </EntityType>
+  <EntityType Name="Cellphone_Software">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cellphones" Relationship="Self.FK_Cellphone_Cellphone_Software" FromRole="Cellphone_Software" ToRole="Cellphone" />
+    <NavigationProperty Name="No_Connection" Relationship="Self.FK_Cellphone_Software_No_Connection" FromRole="Cellphone_Software" ToRole="No_Connection" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
+    <Property Name="Addr_Id" Type="Int32" Nullable="false" />
+    <Property Name="Mail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Address" Relationship="Self.FK_Customer_Address" FromRole="Customer" ToRole="Address" />
+    <NavigationProperty Name="Incidents" Relationship="Self.FK_Incident_Customer" FromRole="Customer" ToRole="Incident" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
+    <Property Name="Addr_Id" Type="Int32" Nullable="false" />
+    <Property Name="Mail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Address" Relationship="Self.FK_Employee_Address" FromRole="Employee" ToRole="Address" />
+    <NavigationProperty Name="Employee_Support" Relationship="Self.FK_Employee_Support_Employee" FromRole="Employee" ToRole="Employee_Support" />
+  </EntityType>
+  <EntityType Name="Employee_Support">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_Id" Type="Int32" Nullable="false" />
+    <Property Name="SupportLevel" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Support_Employee" FromRole="Employee_Support" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Incident">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Caller_Id" Type="Int32" Nullable="false" />
+    <Property Name="Descrition" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Category_Id" Type="Int32" />
+    <Property Name="Opened" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Urgency_Id" Type="Int32" Nullable="false" />
+    <Property Name="Status_Id" Type="Int32" Nullable="false" />
+    <Property Name="Solution_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Incident_Category" FromRole="Incident" ToRole="Category" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Incident_Customer" FromRole="Incident" ToRole="Customer" />
+    <NavigationProperty Name="Solution" Relationship="Self.FK_Incident_Solution" FromRole="Incident" ToRole="Solution" />
+    <NavigationProperty Name="Status" Relationship="Self.FK_Incident_Status_Id" FromRole="Incident" ToRole="Status" />
+    <NavigationProperty Name="Urgency" Relationship="Self.FK_Incident_Urgency" FromRole="Incident" ToRole="Urgency" />
+    <NavigationProperty Name="SecondLevels" Relationship="Self.FK_SecondLevel_Incident" FromRole="Incident" ToRole="SecondLevel" />
+  </EntityType>
+  <EntityType Name="No_Connection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Solution_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cellphone_Software" Relationship="Self.FK_Cellphone_Software_No_Connection" FromRole="No_Connection" ToRole="Cellphone_Software" />
+    <NavigationProperty Name="Solution" Relationship="Self.FK_Table_Solution" FromRole="No_Connection" ToRole="Solution" />
+  </EntityType>
+  <EntityType Name="O">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RegistryChange" Relationship="Self.FK_OS_RegistryChange" FromRole="OS" ToRole="RegistryChange" />
+    <NavigationProperty Name="PCs" Relationship="Self.FK_PC_OS" FromRole="OS" ToRole="PC" />
+  </EntityType>
+  <EntityType Name="PC">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK_Category_PC" FromRole="PC" ToRole="Category" />
+    <NavigationProperty Name="O" Relationship="Self.FK_PC_OS" FromRole="PC" ToRole="OS" />
+  </EntityType>
+  <EntityType Name="Print">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK_Category_Print" FromRole="Print" ToRole="Category" />
+    <NavigationProperty Name="Print_Hardware" Relationship="Self.FK_Print_Print_Hardware" FromRole="Print" ToRole="Print_Hardware" />
+    <NavigationProperty Name="Print_Software" Relationship="Self.FK_Print_Print_Software" FromRole="Print" ToRole="Print_Software" />
+  </EntityType>
+  <EntityType Name="Print_Hardware">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Solution_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Prints" Relationship="Self.FK_Print_Print_Hardware" FromRole="Print_Hardware" ToRole="Print" />
+    <NavigationProperty Name="Solution" Relationship="Self.FK_Print_Hardware_Solution" FromRole="Print_Hardware" ToRole="Solution" />
+  </EntityType>
+  <EntityType Name="Print_Software">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Solution_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Prints" Relationship="Self.FK_Print_Print_Software" FromRole="Print_Software" ToRole="Print" />
+    <NavigationProperty Name="Solution" Relationship="Self.FK_Print_Software_Solution" FromRole="Print_Software" ToRole="Solution" />
+  </EntityType>
+  <EntityType Name="RegistryChange">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Solution_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Applications" Relationship="Self.FK_Application_RegistryChange" FromRole="RegistryChange" ToRole="Application" />
+    <NavigationProperty Name="OS" Relationship="Self.FK_OS_RegistryChange" FromRole="RegistryChange" ToRole="OS" />
+    <NavigationProperty Name="Solution" Relationship="Self.FK_RegistryChange_Solution" FromRole="RegistryChange" ToRole="Solution" />
+  </EntityType>
+  <EntityType Name="SecondLevel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ticket_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Incident" Relationship="Self.FK_SecondLevel_Incident" FromRole="SecondLevel" ToRole="Incident" />
+  </EntityType>
+  <EntityType Name="Solution">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Category_Id" Type="Int32" Nullable="false" />
+    <Property Name="Solution1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SupportLevel" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Solution_Category" FromRole="Solution" ToRole="Category" />
+    <NavigationProperty Name="Cellphone_Battery" Relationship="Self.FK_Cellphone_Battery_Solution" FromRole="Solution" ToRole="Cellphone_Battery" />
+    <NavigationProperty Name="Incidents" Relationship="Self.FK_Incident_Solution" FromRole="Solution" ToRole="Incident" />
+    <NavigationProperty Name="No_Connection" Relationship="Self.FK_Table_Solution" FromRole="Solution" ToRole="No_Connection" />
+    <NavigationProperty Name="Print_Hardware" Relationship="Self.FK_Print_Hardware_Solution" FromRole="Solution" ToRole="Print_Hardware" />
+    <NavigationProperty Name="Print_Software" Relationship="Self.FK_Print_Software_Solution" FromRole="Solution" ToRole="Print_Software" />
+    <NavigationProperty Name="RegistryChanges" Relationship="Self.FK_RegistryChange_Solution" FromRole="Solution" ToRole="RegistryChange" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Incidents" Relationship="Self.FK_Incident_Status_Id" FromRole="Status" ToRole="Incident" />
+  </EntityType>
+  <EntityType Name="Urgency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UrgencyState" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Incidents" Relationship="Self.FK_Incident_Urgency" FromRole="Urgency" ToRole="Incident" />
+  </EntityType>
+  <EntityType Name="Cellphone_Battery1">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="Expr3" />
+      <PropertyRef Name="Expr5" />
+      <PropertyRef Name="Expr6" />
+      <PropertyRef Name="Solution" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Expr1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Expr3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Expr5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Expr6" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Solution" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer_Info">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Number" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="Street" />
+      <PropertyRef Name="zip" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
+    <Property Name="Mail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Street" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="zip" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Customer_Address">
+    <End Role="Address" Type="Self.Address" Multiplicity="1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="Addr_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Address">
+    <End Role="Address" Type="Self.Address" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Addr_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_RegistryChange">
+    <End Role="RegistryChange" Type="Self.RegistryChange" Multiplicity="1" />
+    <End Role="Application" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegistryChange">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="Name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Category_PC">
+    <End Role="PC" Type="Self.PC" Multiplicity="1" />
+    <End Role="Category" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PC">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Category_Print">
+    <End Role="Print" Type="Self.Print" Multiplicity="1" />
+    <End Role="Category" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Print">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Incident_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Incident" Type="Self.Incident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Incident">
+        <PropertyRef Name="Category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Solution_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Solution" Type="Self.Solution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Solution">
+        <PropertyRef Name="Category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cellphone_Cellphone_Hardware">
+    <End Role="Cellphone_Hardware" Type="Self.Cellphone_Hardware" Multiplicity="1" />
+    <End Role="Cellphone" Type="Self.Cellphone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cellphone_Hardware">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cellphone">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cellphone_Cellphone_Software">
+    <End Role="Cellphone_Software" Type="Self.Cellphone_Software" Multiplicity="1" />
+    <End Role="Cellphone" Type="Self.Cellphone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cellphone_Software">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cellphone">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cellphone_Battery_Solution">
+    <End Role="Solution" Type="Self.Solution" Multiplicity="1" />
+    <End Role="Cellphone_Battery" Type="Self.Cellphone_Battery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solution">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cellphone_Battery">
+        <PropertyRef Name="Solution_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cellphone_Hardware_Cellphone_Battery">
+    <End Role="Cellphone_Battery" Type="Self.Cellphone_Battery" Multiplicity="1" />
+    <End Role="Cellphone_Hardware" Type="Self.Cellphone_Hardware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cellphone_Battery">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cellphone_Hardware">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cellphone_Software_No_Connection">
+    <End Role="No_Connection" Type="Self.No_Connection" Multiplicity="1" />
+    <End Role="Cellphone_Software" Type="Self.Cellphone_Software" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="No_Connection">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cellphone_Software">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Incident_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Incident" Type="Self.Incident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Incident">
+        <PropertyRef Name="Caller_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Support_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Employee_Support" Type="Self.Employee_Support" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee_Support">
+        <PropertyRef Name="Name_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Incident_Solution">
+    <End Role="Solution" Type="Self.Solution" Multiplicity="1" />
+    <End Role="Incident" Type="Self.Incident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solution">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Incident">
+        <PropertyRef Name="Solution_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Incident_Status_Id">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="Incident" Type="Self.Incident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Incident">
+        <PropertyRef Name="Status_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Incident_Urgency">
+    <End Role="Urgency" Type="Self.Urgency" Multiplicity="1" />
+    <End Role="Incident" Type="Self.Incident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urgency">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Incident">
+        <PropertyRef Name="Urgency_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SecondLevel_Incident">
+    <End Role="Incident" Type="Self.Incident" Multiplicity="1" />
+    <End Role="SecondLevel" Type="Self.SecondLevel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Incident">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SecondLevel">
+        <PropertyRef Name="Ticket_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Solution">
+    <End Role="Solution" Type="Self.Solution" Multiplicity="1" />
+    <End Role="No_Connection" Type="Self.No_Connection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solution">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="No_Connection">
+        <PropertyRef Name="Solution_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OS_RegistryChange">
+    <End Role="RegistryChange" Type="Self.RegistryChange" Multiplicity="1" />
+    <End Role="OS" Type="Self.O" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegistryChange">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OS">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PC_OS">
+    <End Role="OS" Type="Self.O" Multiplicity="1" />
+    <End Role="PC" Type="Self.PC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OS">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PC">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Print_Print_Hardware">
+    <End Role="Print_Hardware" Type="Self.Print_Hardware" Multiplicity="1" />
+    <End Role="Print" Type="Self.Print" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Print_Hardware">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Print">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Print_Print_Software">
+    <End Role="Print_Software" Type="Self.Print_Software" Multiplicity="1" />
+    <End Role="Print" Type="Self.Print" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Print_Software">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Print">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Print_Hardware_Solution">
+    <End Role="Solution" Type="Self.Solution" Multiplicity="1" />
+    <End Role="Print_Hardware" Type="Self.Print_Hardware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solution">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Print_Hardware">
+        <PropertyRef Name="Solution_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Print_Software_Solution">
+    <End Role="Solution" Type="Self.Solution" Multiplicity="1" />
+    <End Role="Print_Software" Type="Self.Print_Software" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solution">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Print_Software">
+        <PropertyRef Name="Solution_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegistryChange_Solution">
+    <End Role="Solution" Type="Self.Solution" Multiplicity="1" />
+    <End Role="RegistryChange" Type="Self.RegistryChange" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solution">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegistryChange">
+        <PropertyRef Name="Solution_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SolutionDBEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Addresses" EntityType="Self.Address" />
+    <EntitySet Name="Applications" EntityType="Self.Application" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Cellphones" EntityType="Self.Cellphone" />
+    <EntitySet Name="Cellphone_Battery" EntityType="Self.Cellphone_Battery" />
+    <EntitySet Name="Cellphone_Hardware" EntityType="Self.Cellphone_Hardware" />
+    <EntitySet Name="Cellphone_Software" EntityType="Self.Cellphone_Software" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Employee_Support" EntityType="Self.Employee_Support" />
+    <EntitySet Name="Incidents" EntityType="Self.Incident" />
+    <EntitySet Name="No_Connection" EntityType="Self.No_Connection" />
+    <EntitySet Name="OS" EntityType="Self.O" />
+    <EntitySet Name="PCs" EntityType="Self.PC" />
+    <EntitySet Name="Prints" EntityType="Self.Print" />
+    <EntitySet Name="Print_Hardware" EntityType="Self.Print_Hardware" />
+    <EntitySet Name="Print_Software" EntityType="Self.Print_Software" />
+    <EntitySet Name="RegistryChanges" EntityType="Self.RegistryChange" />
+    <EntitySet Name="SecondLevels" EntityType="Self.SecondLevel" />
+    <EntitySet Name="Solutions" EntityType="Self.Solution" />
+    <EntitySet Name="Status" EntityType="Self.Status" />
+    <EntitySet Name="Urgencies" EntityType="Self.Urgency" />
+    <EntitySet Name="Cellphone_Batteries" EntityType="Self.Cellphone_Battery1" />
+    <EntitySet Name="Customer_Info" EntityType="Self.Customer_Info" />
+    <AssociationSet Name="FK_Customer_Address" Association="Self.FK_Customer_Address">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Address" Association="Self.FK_Employee_Address">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_RegistryChange" Association="Self.FK_Application_RegistryChange">
+      <End Role="RegistryChange" EntitySet="RegistryChanges" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Category_PC" Association="Self.FK_Category_PC">
+      <End Role="PC" EntitySet="PCs" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Category_Print" Association="Self.FK_Category_Print">
+      <End Role="Print" EntitySet="Prints" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Incident_Category" Association="Self.FK_Incident_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Incident" EntitySet="Incidents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Solution_Category" Association="Self.FK_Solution_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Solution" EntitySet="Solutions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cellphone_Cellphone_Hardware" Association="Self.FK_Cellphone_Cellphone_Hardware">
+      <End Role="Cellphone_Hardware" EntitySet="Cellphone_Hardware" />
+      <End Role="Cellphone" EntitySet="Cellphones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cellphone_Cellphone_Software" Association="Self.FK_Cellphone_Cellphone_Software">
+      <End Role="Cellphone_Software" EntitySet="Cellphone_Software" />
+      <End Role="Cellphone" EntitySet="Cellphones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cellphone_Battery_Solution" Association="Self.FK_Cellphone_Battery_Solution">
+      <End Role="Solution" EntitySet="Solutions" />
+      <End Role="Cellphone_Battery" EntitySet="Cellphone_Battery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cellphone_Hardware_Cellphone_Battery" Association="Self.FK_Cellphone_Hardware_Cellphone_Battery">
+      <End Role="Cellphone_Battery" EntitySet="Cellphone_Battery" />
+      <End Role="Cellphone_Hardware" EntitySet="Cellphone_Hardware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cellphone_Software_No_Connection" Association="Self.FK_Cellphone_Software_No_Connection">
+      <End Role="No_Connection" EntitySet="No_Connection" />
+      <End Role="Cellphone_Software" EntitySet="Cellphone_Software" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Incident_Customer" Association="Self.FK_Incident_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Incident" EntitySet="Incidents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Support_Employee" Association="Self.FK_Employee_Support_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Employee_Support" EntitySet="Employee_Support" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Incident_Solution" Association="Self.FK_Incident_Solution">
+      <End Role="Solution" EntitySet="Solutions" />
+      <End Role="Incident" EntitySet="Incidents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Incident_Status_Id" Association="Self.FK_Incident_Status_Id">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Incident" EntitySet="Incidents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Incident_Urgency" Association="Self.FK_Incident_Urgency">
+      <End Role="Urgency" EntitySet="Urgencies" />
+      <End Role="Incident" EntitySet="Incidents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SecondLevel_Incident" Association="Self.FK_SecondLevel_Incident">
+      <End Role="Incident" EntitySet="Incidents" />
+      <End Role="SecondLevel" EntitySet="SecondLevels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Solution" Association="Self.FK_Table_Solution">
+      <End Role="Solution" EntitySet="Solutions" />
+      <End Role="No_Connection" EntitySet="No_Connection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OS_RegistryChange" Association="Self.FK_OS_RegistryChange">
+      <End Role="RegistryChange" EntitySet="RegistryChanges" />
+      <End Role="OS" EntitySet="OS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PC_OS" Association="Self.FK_PC_OS">
+      <End Role="OS" EntitySet="OS" />
+      <End Role="PC" EntitySet="PCs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Print_Print_Hardware" Association="Self.FK_Print_Print_Hardware">
+      <End Role="Print_Hardware" EntitySet="Print_Hardware" />
+      <End Role="Print" EntitySet="Prints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Print_Print_Software" Association="Self.FK_Print_Print_Software">
+      <End Role="Print_Software" EntitySet="Print_Software" />
+      <End Role="Print" EntitySet="Prints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Print_Hardware_Solution" Association="Self.FK_Print_Hardware_Solution">
+      <End Role="Solution" EntitySet="Solutions" />
+      <End Role="Print_Hardware" EntitySet="Print_Hardware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Print_Software_Solution" Association="Self.FK_Print_Software_Solution">
+      <End Role="Solution" EntitySet="Solutions" />
+      <End Role="Print_Software" EntitySet="Print_Software" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegistryChange_Solution" Association="Self.FK_RegistryChange_Solution">
+      <End Role="Solution" EntitySet="Solutions" />
+      <End Role="RegistryChange" EntitySet="RegistryChanges" />
+    </AssociationSet>
+    <FunctionImport Name="usp_AddressDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_AddressInsert" ReturnType="Collection(SolutionDBModel.usp_AddressInsert_Result)">
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Street" Mode="In" Type="String" />
+      <Parameter Name="zip" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_AddressSelect" ReturnType="Collection(SolutionDBModel.usp_AddressSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_AddressUpdate" ReturnType="Collection(SolutionDBModel.usp_AddressUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Street" Mode="In" Type="String" />
+      <Parameter Name="zip" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_ApplicationDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_ApplicationInsert" ReturnType="Collection(SolutionDBModel.usp_ApplicationInsert_Result)">
+      <Parameter Name="Name" Mode="In" Type="Int32" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_ApplicationSelect" ReturnType="Collection(SolutionDBModel.usp_ApplicationSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_ApplicationUpdate" ReturnType="Collection(SolutionDBModel.usp_ApplicationUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="Int32" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_CategoryDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_CategoryInsert" ReturnType="Collection(SolutionDBModel.usp_CategoryInsert_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="SubCategory_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_CategorySelect" ReturnType="Collection(SolutionDBModel.usp_CategorySelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_CategoryUpdate" ReturnType="Collection(SolutionDBModel.usp_CategoryUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="SubCategory_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Cellphone_BatteryDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Cellphone_BatteryInsert" ReturnType="Collection(SolutionDBModel.usp_Cellphone_BatteryInsert_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Solution_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Cellphone_BatterySelect" ReturnType="Collection(SolutionDBModel.usp_Cellphone_BatterySelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Cellphone_BatteryUpdate" ReturnType="Collection(SolutionDBModel.usp_Cellphone_BatteryUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Solution_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Cellphone_HardwareDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Cellphone_HardwareInsert" ReturnType="Collection(SolutionDBModel.usp_Cellphone_HardwareInsert_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="SubCategory_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Cellphone_HardwareSelect" ReturnType="Collection(SolutionDBModel.usp_Cellphone_HardwareSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Cellphone_HardwareUpdate" ReturnType="Collection(SolutionDBModel.usp_Cellphone_HardwareUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="SubCategory_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Cellphone_SoftwareDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Cellphone_SoftwareInsert" ReturnType="Collection(SolutionDBModel.usp_Cellphone_SoftwareInsert_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="SubCategory_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Cellphone_SoftwareSelect" ReturnType="Collection(SolutionDBModel.usp_Cellphone_SoftwareSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Cellphone_SoftwareUpdate" ReturnType="Collection(SolutionDBModel.usp_Cellphone_SoftwareUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="SubCategory_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_CellphoneDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_CellphoneInsert" ReturnType="Collection(SolutionDBModel.usp_CellphoneInsert_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="SubCategory_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_CellphoneSelect" ReturnType="Collection(SolutionDBModel.usp_CellphoneSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_CellphoneUpdate" ReturnType="Collection(SolutionDBModel.usp_CellphoneUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="SubCategory_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_CustomerDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_CustomerInsert" ReturnType="Collection(SolutionDBModel.usp_CustomerInsert_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Number" Mode="In" Type="Int32" />
+      <Parameter Name="Addr_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Mail" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_CustomerSelect" ReturnType="Collection(SolutionDBModel.usp_CustomerSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_CustomerUpdate" ReturnType="Collection(SolutionDBModel.usp_CustomerUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Number" Mode="In" Type="Int32" />
+      <Parameter Name="Addr_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Mail" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Employee_SupportDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Employee_SupportInsert" ReturnType="Collection(SolutionDBModel.usp_Employee_SupportInsert_Result)">
+      <Parameter Name="Name_Id" Mode="In" Type="Int32" />
+      <Parameter Name="SupportLevel" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Employee_SupportSelect" ReturnType="Collection(SolutionDBModel.usp_Employee_SupportSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Employee_SupportUpdate" ReturnType="Collection(SolutionDBModel.usp_Employee_SupportUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name_Id" Mode="In" Type="Int32" />
+      <Parameter Name="SupportLevel" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_EmployeeDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_EmployeeInsert" ReturnType="Collection(SolutionDBModel.usp_EmployeeInsert_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Number" Mode="In" Type="Int32" />
+      <Parameter Name="Addr_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Mail" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_EmployeeSelect" ReturnType="Collection(SolutionDBModel.usp_EmployeeSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_EmployeeUpdate" ReturnType="Collection(SolutionDBModel.usp_EmployeeUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Number" Mode="In" Type="Int32" />
+      <Parameter Name="Addr_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Mail" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_IncidentDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_IncidentInsert" ReturnType="Collection(SolutionDBModel.usp_IncidentInsert_Result)">
+      <Parameter Name="Caller_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Descrition" Mode="In" Type="String" />
+      <Parameter Name="Category_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Urgency_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Status_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Solution_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_IncidentSelect" ReturnType="Collection(SolutionDBModel.usp_IncidentSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_IncidentUpdate" ReturnType="Collection(SolutionDBModel.usp_IncidentUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Caller_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Descrition" Mode="In" Type="String" />
+      <Parameter Name="Category_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Urgency_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Status_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Solution_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_No_ConnectionDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_No_ConnectionInsert" ReturnType="Collection(SolutionDBModel.usp_No_ConnectionInsert_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Solution_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_No_ConnectionSelect" ReturnType="Collection(SolutionDBModel.usp_No_ConnectionSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_No_ConnectionUpdate" ReturnType="Collection(SolutionDBModel.usp_No_ConnectionUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Solution_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_OSDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_OSInsert" ReturnType="Collection(SolutionDBModel.usp_OSInsert_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="SubCategory_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_OSSelect" ReturnType="Collection(SolutionDBModel.usp_OSSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_OSUpdate" ReturnType="Collection(SolutionDBModel.usp_OSUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="SubCategory_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_PCDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_PCInsert" ReturnType="Collection(SolutionDBModel.usp_PCInsert_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="SubCategory_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_PCSelect" ReturnType="Collection(SolutionDBModel.usp_PCSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_PCUpdate" ReturnType="Collection(SolutionDBModel.usp_PCUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="SubCategory_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Print_HardwareDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Print_HardwareInsert" ReturnType="Collection(SolutionDBModel.usp_Print_HardwareInsert_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Solution_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Print_HardwareSelect" ReturnType="Collection(SolutionDBModel.usp_Print_HardwareSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Print_HardwareUpdate" ReturnType="Collection(SolutionDBModel.usp_Print_HardwareUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Solution_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Print_SoftwareDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Print_SoftwareInsert" ReturnType="Collection(SolutionDBModel.usp_Print_SoftwareInsert_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Solution_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Print_SoftwareSelect" ReturnType="Collection(SolutionDBModel.usp_Print_SoftwareSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Print_SoftwareUpdate" ReturnType="Collection(SolutionDBModel.usp_Print_SoftwareUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Solution_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_PrintDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_PrintInsert" ReturnType="Collection(SolutionDBModel.usp_PrintInsert_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="SubCategory_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_PrintSelect" ReturnType="Collection(SolutionDBModel.usp_PrintSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_PrintUpdate" ReturnType="Collection(SolutionDBModel.usp_PrintUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="SubCategory_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_RegistryChangeDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_RegistryChangeInsert" ReturnType="Collection(SolutionDBModel.usp_RegistryChangeInsert_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Solution_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_RegistryChangeSelect" ReturnType="Collection(SolutionDBModel.usp_RegistryChangeSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_RegistryChangeUpdate" ReturnType="Collection(SolutionDBModel.usp_RegistryChangeUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Solution_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_SecondLevelDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_SecondLevelInsert" ReturnType="Collection(SolutionDBModel.usp_SecondLevelInsert_Result)">
+      <Parameter Name="Ticket_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_SecondLevelSelect" ReturnType="Collection(SolutionDBModel.usp_SecondLevelSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_SecondLevelUpdate" ReturnType="Collection(SolutionDBModel.usp_SecondLevelUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Ticket_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_SolutionDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_SolutionInsert" ReturnType="Collection(SolutionDBModel.usp_SolutionInsert_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Category_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Solution" Mode="In" Type="String" />
+      <Parameter Name="SupportLevel" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_SolutionSelect" ReturnType="Collection(SolutionDBModel.usp_SolutionSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_SolutionUpdate" ReturnType="Collection(SolutionDBModel.usp_SolutionUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Category_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Solution" Mode="In" Type="String" />
+      <Parameter Name="SupportLevel" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_StatusDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_StatusInsert" ReturnType="Collection(SolutionDBModel.usp_StatusInsert_Result)">
+      <Parameter Name="State" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_StatusSelect" ReturnType="Collection(SolutionDBModel.usp_StatusSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_StatusUpdate" ReturnType="Collection(SolutionDBModel.usp_StatusUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="State" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_TableDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_TableInsert" ReturnType="Collection(SolutionDBModel.usp_TableInsert_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="SubCategory_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_TableSelect" ReturnType="Collection(SolutionDBModel.usp_TableSelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_TableUpdate" ReturnType="Collection(SolutionDBModel.usp_TableUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="SubCategory_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_UrgencyDelete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_UrgencyInsert" ReturnType="Collection(SolutionDBModel.usp_UrgencyInsert_Result)">
+      <Parameter Name="UrgencyState" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_UrgencySelect" ReturnType="Collection(SolutionDBModel.usp_UrgencySelect_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_UrgencyUpdate" ReturnType="Collection(SolutionDBModel.usp_UrgencyUpdate_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="UrgencyState" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="usp_AddressInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Street" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="zip" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_AddressSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Street" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="zip" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_AddressUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Street" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="zip" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_ApplicationInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Name" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="usp_ApplicationSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Name" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="usp_ApplicationUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Name" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="usp_CategoryInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_CategorySelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_CategoryUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Cellphone_BatteryInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Cellphone_BatterySelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Cellphone_BatteryUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Cellphone_HardwareInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Cellphone_HardwareSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Cellphone_HardwareUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Cellphone_SoftwareInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Cellphone_SoftwareSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Cellphone_SoftwareUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_CellphoneInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_CellphoneSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_CellphoneUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_CustomerInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Number" Nullable="false" />
+    <Property Type="Int32" Name="Addr_Id" Nullable="false" />
+    <Property Type="String" Name="Mail" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="usp_CustomerSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Number" Nullable="false" />
+    <Property Type="Int32" Name="Addr_Id" Nullable="false" />
+    <Property Type="String" Name="Mail" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="usp_CustomerUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Number" Nullable="false" />
+    <Property Type="Int32" Name="Addr_Id" Nullable="false" />
+    <Property Type="String" Name="Mail" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="usp_Employee_SupportInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Name_Id" Nullable="false" />
+    <Property Type="Int32" Name="SupportLevel" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Employee_SupportSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Name_Id" Nullable="false" />
+    <Property Type="Int32" Name="SupportLevel" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Employee_SupportUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Name_Id" Nullable="false" />
+    <Property Type="Int32" Name="SupportLevel" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_EmployeeInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Number" Nullable="false" />
+    <Property Type="Int32" Name="Addr_Id" Nullable="false" />
+    <Property Type="String" Name="Mail" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="usp_EmployeeSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Number" Nullable="false" />
+    <Property Type="Int32" Name="Addr_Id" Nullable="false" />
+    <Property Type="String" Name="Mail" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="usp_EmployeeUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Number" Nullable="false" />
+    <Property Type="Int32" Name="Addr_Id" Nullable="false" />
+    <Property Type="String" Name="Mail" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="usp_IncidentInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Caller_Id" Nullable="false" />
+    <Property Type="String" Name="Descrition" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Category_Id" Nullable="true" />
+    <Property Type="Binary" Name="Opened" Nullable="false" MaxLength="8" />
+    <Property Type="Int32" Name="Urgency_Id" Nullable="false" />
+    <Property Type="Int32" Name="Status_Id" Nullable="false" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_IncidentSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Caller_Id" Nullable="false" />
+    <Property Type="String" Name="Descrition" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Category_Id" Nullable="true" />
+    <Property Type="Binary" Name="Opened" Nullable="false" MaxLength="8" />
+    <Property Type="Int32" Name="Urgency_Id" Nullable="false" />
+    <Property Type="Int32" Name="Status_Id" Nullable="false" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_IncidentUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Caller_Id" Nullable="false" />
+    <Property Type="String" Name="Descrition" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Category_Id" Nullable="true" />
+    <Property Type="Binary" Name="Opened" Nullable="false" MaxLength="8" />
+    <Property Type="Int32" Name="Urgency_Id" Nullable="false" />
+    <Property Type="Int32" Name="Status_Id" Nullable="false" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_No_ConnectionInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_No_ConnectionSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_No_ConnectionUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_OSInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_OSSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_OSUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_PCInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_PCSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_PCUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Print_HardwareInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Print_HardwareSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Print_HardwareUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Print_SoftwareInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Print_SoftwareSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_Print_SoftwareUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_PrintInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_PrintSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_PrintUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_RegistryChangeInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_RegistryChangeSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_RegistryChangeUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Solution_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_SecondLevelInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Ticket_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_SecondLevelSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Ticket_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_SecondLevelUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Ticket_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_SolutionInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Category_Id" Nullable="false" />
+    <Property Type="String" Name="Solution" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SupportLevel" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="usp_SolutionSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Category_Id" Nullable="false" />
+    <Property Type="String" Name="Solution" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SupportLevel" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="usp_SolutionUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="Category_Id" Nullable="false" />
+    <Property Type="String" Name="Solution" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SupportLevel" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="usp_StatusInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="State" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="usp_StatusSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="State" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="usp_StatusUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="State" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="usp_TableInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_TableSelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_TableUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_UrgencyInsert_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="UrgencyState" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="usp_UrgencySelect_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="UrgencyState" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="usp_UrgencyUpdate_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="UrgencyState" Nullable="false" MaxLength="255" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,1045 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SolutionDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Street" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="zip" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cellphone">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cellphone_Battery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Solution_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cellphone_Hardware">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cellphone_Software">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Number" Type="int" Nullable="false" />
+    <Property Name="Addr_Id" Type="int" Nullable="false" />
+    <Property Name="Mail" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Number" Type="int" Nullable="false" />
+    <Property Name="Addr_Id" Type="int" Nullable="false" />
+    <Property Name="Mail" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee_Support">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_Id" Type="int" Nullable="false" />
+    <Property Name="SupportLevel" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Incident">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Caller_Id" Type="int" Nullable="false" />
+    <Property Name="Descrition" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Category_Id" Type="int" />
+    <Property Name="Opened" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="Urgency_Id" Type="int" Nullable="false" />
+    <Property Name="Status_Id" Type="int" Nullable="false" />
+    <Property Name="Solution_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="No_Connection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Solution_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PC">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Print">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Print_Hardware">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Solution_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Print_Software">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Solution_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RegistryChange">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Solution_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SecondLevel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ticket_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Solution">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Category_Id" Type="int" Nullable="false" />
+    <Property Name="Solution" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SupportLevel" Type="int" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Urgency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrgencyState" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SolutionDB.dbo.Cellphone Battery' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Cellphone Battery">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="Expr3" />
+      <PropertyRef Name="Expr5" />
+      <PropertyRef Name="Expr6" />
+      <PropertyRef Name="Solution" />
+    </Key>
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Expr1" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Expr3" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Expr5" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Expr6" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Solution" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SolutionDB.dbo.Customer_Info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Customer_Info">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Number" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="Street" />
+      <PropertyRef Name="zip" />
+    </Key>
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Number" Type="int" Nullable="false" />
+    <Property Name="Mail" Type="varchar" MaxLength="255" />
+    <Property Name="City" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Street" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="zip" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Application_RegistryChange">
+    <End Role="RegistryChange" Type="Self.RegistryChange" Multiplicity="1" />
+    <End Role="Application" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegistryChange">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="Name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Category_PC">
+    <End Role="PC" Type="Self.PC" Multiplicity="1" />
+    <End Role="Category" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PC">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Category_Print">
+    <End Role="Print" Type="Self.Print" Multiplicity="1" />
+    <End Role="Category" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Print">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cellphone_Battery_Solution">
+    <End Role="Solution" Type="Self.Solution" Multiplicity="1" />
+    <End Role="Cellphone_Battery" Type="Self.Cellphone_Battery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solution">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cellphone_Battery">
+        <PropertyRef Name="Solution_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cellphone_Cellphone_Hardware">
+    <End Role="Cellphone_Hardware" Type="Self.Cellphone_Hardware" Multiplicity="1" />
+    <End Role="Cellphone" Type="Self.Cellphone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cellphone_Hardware">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cellphone">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cellphone_Cellphone_Software">
+    <End Role="Cellphone_Software" Type="Self.Cellphone_Software" Multiplicity="1" />
+    <End Role="Cellphone" Type="Self.Cellphone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cellphone_Software">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cellphone">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cellphone_Hardware_Cellphone_Battery">
+    <End Role="Cellphone_Battery" Type="Self.Cellphone_Battery" Multiplicity="1" />
+    <End Role="Cellphone_Hardware" Type="Self.Cellphone_Hardware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cellphone_Battery">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cellphone_Hardware">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cellphone_Software_No_Connection">
+    <End Role="No_Connection" Type="Self.No_Connection" Multiplicity="1" />
+    <End Role="Cellphone_Software" Type="Self.Cellphone_Software" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="No_Connection">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cellphone_Software">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_Address">
+    <End Role="Address" Type="Self.Address" Multiplicity="1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="Addr_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Address">
+    <End Role="Address" Type="Self.Address" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Addr_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Support_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Employee_Support" Type="Self.Employee_Support" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee_Support">
+        <PropertyRef Name="Name_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Incident_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Incident" Type="Self.Incident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Incident">
+        <PropertyRef Name="Category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Incident_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Incident" Type="Self.Incident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Incident">
+        <PropertyRef Name="Caller_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Incident_Solution">
+    <End Role="Solution" Type="Self.Solution" Multiplicity="1" />
+    <End Role="Incident" Type="Self.Incident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solution">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Incident">
+        <PropertyRef Name="Solution_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Incident_Status_Id">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="Incident" Type="Self.Incident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Incident">
+        <PropertyRef Name="Status_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Incident_Urgency">
+    <End Role="Urgency" Type="Self.Urgency" Multiplicity="1" />
+    <End Role="Incident" Type="Self.Incident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urgency">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Incident">
+        <PropertyRef Name="Urgency_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OS_RegistryChange">
+    <End Role="RegistryChange" Type="Self.RegistryChange" Multiplicity="1" />
+    <End Role="OS" Type="Self.OS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegistryChange">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OS">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PC_OS">
+    <End Role="OS" Type="Self.OS" Multiplicity="1" />
+    <End Role="PC" Type="Self.PC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OS">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PC">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Print_Hardware_Solution">
+    <End Role="Solution" Type="Self.Solution" Multiplicity="1" />
+    <End Role="Print_Hardware" Type="Self.Print_Hardware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solution">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Print_Hardware">
+        <PropertyRef Name="Solution_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Print_Print_Hardware">
+    <End Role="Print_Hardware" Type="Self.Print_Hardware" Multiplicity="1" />
+    <End Role="Print" Type="Self.Print" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Print_Hardware">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Print">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Print_Print_Software">
+    <End Role="Print_Software" Type="Self.Print_Software" Multiplicity="1" />
+    <End Role="Print" Type="Self.Print" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Print_Software">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Print">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Print_Software_Solution">
+    <End Role="Solution" Type="Self.Solution" Multiplicity="1" />
+    <End Role="Print_Software" Type="Self.Print_Software" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solution">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Print_Software">
+        <PropertyRef Name="Solution_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegistryChange_Solution">
+    <End Role="Solution" Type="Self.Solution" Multiplicity="1" />
+    <End Role="RegistryChange" Type="Self.RegistryChange" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solution">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegistryChange">
+        <PropertyRef Name="Solution_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SecondLevel_Incident">
+    <End Role="Incident" Type="Self.Incident" Multiplicity="1" />
+    <End Role="SecondLevel" Type="Self.SecondLevel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Incident">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SecondLevel">
+        <PropertyRef Name="Ticket_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Solution_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Solution" Type="Self.Solution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Solution">
+        <PropertyRef Name="Category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Solution">
+    <End Role="Solution" Type="Self.Solution" Multiplicity="1" />
+    <End Role="No_Connection" Type="Self.No_Connection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solution">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="No_Connection">
+        <PropertyRef Name="Solution_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="usp_AddressDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_AddressInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="City" Type="varchar" Mode="In" />
+    <Parameter Name="Street" Type="varchar" Mode="In" />
+    <Parameter Name="zip" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_AddressSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_AddressUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="City" Type="varchar" Mode="In" />
+    <Parameter Name="Street" Type="varchar" Mode="In" />
+    <Parameter Name="zip" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ApplicationDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ApplicationInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="int" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_ApplicationSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ApplicationUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="int" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CategoryDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CategoryInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="SubCategory_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CategorySelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CategoryUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="SubCategory_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Cellphone_BatteryDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Cellphone_BatteryInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Solution_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Cellphone_BatterySelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Cellphone_BatteryUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Solution_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Cellphone_HardwareDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Cellphone_HardwareInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="SubCategory_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Cellphone_HardwareSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Cellphone_HardwareUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="SubCategory_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Cellphone_SoftwareDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Cellphone_SoftwareInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="SubCategory_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Cellphone_SoftwareSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Cellphone_SoftwareUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="SubCategory_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CellphoneDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CellphoneInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="SubCategory_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CellphoneSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CellphoneUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="SubCategory_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CustomerDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CustomerInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Number" Type="int" Mode="In" />
+    <Parameter Name="Addr_Id" Type="int" Mode="In" />
+    <Parameter Name="Mail" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CustomerSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CustomerUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Number" Type="int" Mode="In" />
+    <Parameter Name="Addr_Id" Type="int" Mode="In" />
+    <Parameter Name="Mail" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_Employee_SupportDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Employee_SupportInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name_Id" Type="int" Mode="In" />
+    <Parameter Name="SupportLevel" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Employee_SupportSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Employee_SupportUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name_Id" Type="int" Mode="In" />
+    <Parameter Name="SupportLevel" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_EmployeeDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_EmployeeInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Number" Type="int" Mode="In" />
+    <Parameter Name="Addr_Id" Type="int" Mode="In" />
+    <Parameter Name="Mail" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_EmployeeSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_EmployeeUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Number" Type="int" Mode="In" />
+    <Parameter Name="Addr_Id" Type="int" Mode="In" />
+    <Parameter Name="Mail" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_IncidentDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_IncidentInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Caller_Id" Type="int" Mode="In" />
+    <Parameter Name="Descrition" Type="varchar" Mode="In" />
+    <Parameter Name="Category_Id" Type="int" Mode="In" />
+    <Parameter Name="Urgency_Id" Type="int" Mode="In" />
+    <Parameter Name="Status_Id" Type="int" Mode="In" />
+    <Parameter Name="Solution_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_IncidentSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_IncidentUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Caller_Id" Type="int" Mode="In" />
+    <Parameter Name="Descrition" Type="varchar" Mode="In" />
+    <Parameter Name="Category_Id" Type="int" Mode="In" />
+    <Parameter Name="Urgency_Id" Type="int" Mode="In" />
+    <Parameter Name="Status_Id" Type="int" Mode="In" />
+    <Parameter Name="Solution_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_No_ConnectionDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_No_ConnectionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Solution_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_No_ConnectionSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_No_ConnectionUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Solution_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_OSDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_OSInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="SubCategory_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_OSSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_OSUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="SubCategory_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_PCDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_PCInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="SubCategory_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_PCSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_PCUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="SubCategory_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Print_HardwareDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Print_HardwareInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Solution_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Print_HardwareSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Print_HardwareUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Solution_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Print_SoftwareDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Print_SoftwareInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Solution_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Print_SoftwareSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Print_SoftwareUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Solution_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_PrintDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_PrintInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="SubCategory_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_PrintSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_PrintUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="SubCategory_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_RegistryChangeDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_RegistryChangeInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Solution_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_RegistryChangeSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_RegistryChangeUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Solution_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SecondLevelDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SecondLevelInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Ticket_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SecondLevelSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SecondLevelUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Ticket_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SolutionDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SolutionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Category_Id" Type="int" Mode="In" />
+    <Parameter Name="Solution" Type="varchar" Mode="In" />
+    <Parameter Name="SupportLevel" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SolutionSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SolutionUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Category_Id" Type="int" Mode="In" />
+    <Parameter Name="Solution" Type="varchar" Mode="In" />
+    <Parameter Name="SupportLevel" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_StatusDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_StatusInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="State" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_StatusSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_StatusUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="State" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_TableDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_TableInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="SubCategory_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_TableSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_TableUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="SubCategory_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_UrgencyDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_UrgencyInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UrgencyState" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_UrgencySelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_UrgencyUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="UrgencyState" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="SolutionDBModelStoreContainer">
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Application" EntityType="Self.Application" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cellphone" EntityType="Self.Cellphone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cellphone_Battery" EntityType="Self.Cellphone_Battery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cellphone_Hardware" EntityType="Self.Cellphone_Hardware" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cellphone_Software" EntityType="Self.Cellphone_Software" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee_Support" EntityType="Self.Employee_Support" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Incident" EntityType="Self.Incident" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="No_Connection" EntityType="Self.No_Connection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OS" EntityType="Self.OS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PC" EntityType="Self.PC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Print" EntityType="Self.Print" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Print_Hardware" EntityType="Self.Print_Hardware" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Print_Software" EntityType="Self.Print_Software" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RegistryChange" EntityType="Self.RegistryChange" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SecondLevel" EntityType="Self.SecondLevel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Solution" EntityType="Self.Solution" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Urgency" EntityType="Self.Urgency" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cellphone Battery" EntityType="Self.Cellphone Battery" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Cellphone Battery].[Name] AS [Name], 
+    [Cellphone Battery].[Expr1] AS [Expr1], 
+    [Cellphone Battery].[Expr3] AS [Expr3], 
+    [Cellphone Battery].[Expr5] AS [Expr5], 
+    [Cellphone Battery].[Expr6] AS [Expr6], 
+    [Cellphone Battery].[Solution] AS [Solution]
+    FROM [dbo].[Cellphone Battery] AS [Cellphone Battery]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Customer_Info" EntityType="Self.Customer_Info" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Customer_Info].[Name] AS [Name], 
+    [Customer_Info].[Number] AS [Number], 
+    [Customer_Info].[Mail] AS [Mail], 
+    [Customer_Info].[City] AS [City], 
+    [Customer_Info].[Street] AS [Street], 
+    [Customer_Info].[zip] AS [zip]
+    FROM [dbo].[Customer_Info] AS [Customer_Info]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Application_RegistryChange" Association="Self.FK_Application_RegistryChange">
+      <End Role="RegistryChange" EntitySet="RegistryChange" />
+      <End Role="Application" EntitySet="Application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Category_PC" Association="Self.FK_Category_PC">
+      <End Role="PC" EntitySet="PC" />
+      <End Role="Category" EntitySet="Category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Category_Print" Association="Self.FK_Category_Print">
+      <End Role="Print" EntitySet="Print" />
+      <End Role="Category" EntitySet="Category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cellphone_Battery_Solution" Association="Self.FK_Cellphone_Battery_Solution">
+      <End Role="Solution" EntitySet="Solution" />
+      <End Role="Cellphone_Battery" EntitySet="Cellphone_Battery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cellphone_Cellphone_Hardware" Association="Self.FK_Cellphone_Cellphone_Hardware">
+      <End Role="Cellphone_Hardware" EntitySet="Cellphone_Hardware" />
+      <End Role="Cellphone" EntitySet="Cellphone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cellphone_Cellphone_Software" Association="Self.FK_Cellphone_Cellphone_Software">
+      <End Role="Cellphone_Software" EntitySet="Cellphone_Software" />
+      <End Role="Cellphone" EntitySet="Cellphone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cellphone_Hardware_Cellphone_Battery" Association="Self.FK_Cellphone_Hardware_Cellphone_Battery">
+      <End Role="Cellphone_Battery" EntitySet="Cellphone_Battery" />
+      <End Role="Cellphone_Hardware" EntitySet="Cellphone_Hardware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cellphone_Software_No_Connection" Association="Self.FK_Cellphone_Software_No_Connection">
+      <End Role="No_Connection" EntitySet="No_Connection" />
+      <End Role="Cellphone_Software" EntitySet="Cellphone_Software" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_Address" Association="Self.FK_Customer_Address">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Address" Association="Self.FK_Employee_Address">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Support_Employee" Association="Self.FK_Employee_Support_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Employee_Support" EntitySet="Employee_Support" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Incident_Category" Association="Self.FK_Incident_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Incident" EntitySet="Incident" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Incident_Customer" Association="Self.FK_Incident_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Incident" EntitySet="Incident" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Incident_Solution" Association="Self.FK_Incident_Solution">
+      <End Role="Solution" EntitySet="Solution" />
+      <End Role="Incident" EntitySet="Incident" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Incident_Status_Id" Association="Self.FK_Incident_Status_Id">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Incident" EntitySet="Incident" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Incident_Urgency" Association="Self.FK_Incident_Urgency">
+      <End Role="Urgency" EntitySet="Urgency" />
+      <End Role="Incident" EntitySet="Incident" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OS_RegistryChange" Association="Self.FK_OS_RegistryChange">
+      <End Role="RegistryChange" EntitySet="RegistryChange" />
+      <End Role="OS" EntitySet="OS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PC_OS" Association="Self.FK_PC_OS">
+      <End Role="OS" EntitySet="OS" />
+      <End Role="PC" EntitySet="PC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Print_Hardware_Solution" Association="Self.FK_Print_Hardware_Solution">
+      <End Role="Solution" EntitySet="Solution" />
+      <End Role="Print_Hardware" EntitySet="Print_Hardware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Print_Print_Hardware" Association="Self.FK_Print_Print_Hardware">
+      <End Role="Print_Hardware" EntitySet="Print_Hardware" />
+      <End Role="Print" EntitySet="Print" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Print_Print_Software" Association="Self.FK_Print_Print_Software">
+      <End Role="Print_Software" EntitySet="Print_Software" />
+      <End Role="Print" EntitySet="Print" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Print_Software_Solution" Association="Self.FK_Print_Software_Solution">
+      <End Role="Solution" EntitySet="Solution" />
+      <End Role="Print_Software" EntitySet="Print_Software" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegistryChange_Solution" Association="Self.FK_RegistryChange_Solution">
+      <End Role="Solution" EntitySet="Solution" />
+      <End Role="RegistryChange" EntitySet="RegistryChange" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SecondLevel_Incident" Association="Self.FK_SecondLevel_Incident">
+      <End Role="Incident" EntitySet="Incident" />
+      <End Role="SecondLevel" EntitySet="SecondLevel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Solution_Category" Association="Self.FK_Solution_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Solution" EntitySet="Solution" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Solution" Association="Self.FK_Table_Solution">
+      <End Role="Solution" EntitySet="Solution" />
+      <End Role="No_Connection" EntitySet="No_Connection" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
